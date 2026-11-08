@@ -1,0 +1,620 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<title>BookVerse | Sua biblioteca</title>
+
+<style>
+    html {
+    scroll-behavior: smooth;
+}
+
+.capa {
+    height: 290px;
+    width: 100%;
+    background: linear-gradient(145deg, #7a2f43, #1b1518);
+    border: 1px solid rgba(199, 161, 173, 0.3);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 8px;
+    margin-bottom: 20px;
+}
+
+.capa img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 5px;
+    display: block;
+}
+
+       
+:root {
+    --fundo: #1b1518;
+    --vinho-escuro: #4b1f2c;
+    --vinho: #7a2f43;
+    --rosa-poeira: #c7a1ad;
+    --rosa-claro: #f7eef1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background:
+        radial-gradient(ellipse at top, #4b1f2c 0%, #1b1518 65%);
+    color: var(--rosa-claro);
+    min-height: 100vh;
+}
+
+header {
+    background: rgba(27, 21, 24, 0.95);
+    border-bottom: 1px solid var(--vinho);
+    padding: 24px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+header h1 {
+    color: var(--rosa-poeira);
+    font-size: 30px;
+    letter-spacing: 2px;
+}
+
+nav a {
+    color: var(--rosa-claro);
+    text-decoration: none;
+    margin-left: 24px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--rosa-poeira);
+}
+
+nav a:focus-visible,
+.search:focus-visible {
+    outline: 3px solid var(--rosa-poeira);
+    outline-offset: 4px;
+}
+
+.hero {
+    padding: 90px 8%;
+    background:
+        linear-gradient(120deg, rgba(75, 31, 44, 0.95),
+        rgba(27, 21, 24, 0.85)),
+        radial-gradient(circle at right, #7a2f43, transparent 60%);
+    border-bottom: 1px solid #7a2f43;
+}
+
+.hero h2 {
+    font-size: clamp(30px, 5vw, 48px);
+    color: var(--rosa-claro);
+    margin-bottom: 18px;
+    max-width: 700px;
+}
+
+.hero p {
+    font-size: 18px;
+    color: var(--rosa-poeira);
+    margin-bottom: 30px;
+    line-height: 1.7;
+}
+
+.search {
+    width: 100%;
+    max-width: 500px;
+    padding: 16px;
+    border: 1px solid var(--rosa-poeira);
+    border-radius: 6px;
+    background: #1b1518;
+    color: var(--rosa-claro);
+    font-size: 16px;
+}
+
+.search::placeholder {
+    color: var(--rosa-poeira);
+}
+
+main {
+    padding: 55px 8%;
+}
+
+main > h2 {
+    color: var(--rosa-poeira);
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.catalogo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.card {
+    background: linear-gradient(145deg, #4b1f2c, #27191e);
+    padding: 22px;
+    border: 1px solid rgba(199, 161, 173, 0.25);
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, border-color 0.3s;
+    display: flex;
+flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: var(--rosa-poeira);
+}
+
+.capa {
+    height: 190px;
+    background:
+        linear-gradient(145deg, #7a2f43, #1b1518);
+    border: 1px solid rgba(199, 161, 173, 0.3);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 58px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    color: var(--rosa-claro);
+    font-size: 21px;
+    margin-bottom: 12px;
+}
+
+.card p:not(.categoria) {
+    color: var(--rosa-poeira);
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.categoria {
+    color: #e0b9c5;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #1b1518;
+    color: var(--rosa-poeira);
+    border-top: 1px solid var(--vinho);
+    margin-top: 50px;
+}
+/* SEÇÃO SOBRE */
+.secao-sobre {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 40px;
+    text-align: center;
+    border-radius: 16px;
+}
+
+.secao-sobre h2 {
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+.secao-sobre h3 {
+    font-size: 22px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.secao-sobre p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 18px;
+}       
+    /* ÁREA DE EXPLORAÇÃO DE GÊNEROS */
+
+.explorar-generos {
+    max-width: 1100px;
+    margin: 70px auto;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.explorar-generos h2 {
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.descricao-generos {
+    font-size: 16px;
+    margin-bottom: 35px;
+}
+
+.generos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.genero {
+    padding: 30px 20px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.genero:hover {
+    transform: translateY(-5px);
+    border-color: #b58bdb;
+}
+
+.genero h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.genero p {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+    .generos {
+        grid-template-columns: 1fr;
+    }
+}
+/* RESPONSIVIDADE PARA CELULARES */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 5%;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    nav a {
+        margin-left: 0;
+    }
+
+    .hero {
+        padding: 55px 6%;
+    }
+
+    main {
+        padding: 35px 6%;
+    }
+
+    .catalogo {
+        grid-template-columns: 1fr;
+    }
+
+    .secao-sobre {
+        padding: 25px 6%;
+        margin: 35px auto;
+    }
+
+    .generos {
+        grid-template-columns: 1fr;
+    }
+
+    .genero {
+        width: 100%;
+    }
+
+    .search {
+        max-width: 100%;
+    }
+}
+
+/* BOTÃO VER TODAS AS PUBLICAÇÕES */
+button.btn-todas {
+    display: block;
+    width: auto;
+    min-width: 240px;
+    margin: 35px auto;
+    padding: 16px 28px;
+    background: #7a2f43;
+    color: #f7eef1;
+    border: 2px solid #c7a1ad;
+    border-radius: 30px;
+    font-family: Georgia, serif;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button.btn-todas:hover {
+    background: #c7a1ad;
+    color: #1b1518;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 18px rgba(199, 161, 173, 0.25);
+}
+
+button.btn-todas:focus-visible {
+    outline: 3px solid #f7eef1;
+    outline-offset: 4px;
+}
+
+button.btn-todas:active {
+    transform: scale(0.97);
+}
+    </style>
+    
+</head>
+
+<body>
+
+    <header id="inicio">
+        <h1>📚 BookVerse</h1>
+
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#catalogo">Catálogo</a>
+            <a href="#sobre">Sobre</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Explore seu universo literário!</h2>
+
+        <p>
+            Organize suas leituras e descubra livros,
+            HQs, mangás e muito mais.
+        </p>
+
+       
+<form id="form-busca">
+    <input
+        class="search"
+        id="campo-busca"
+        type="search"
+        placeholder="Pesquisar publicações..."
+        aria-label="Pesquisar publicações"
+    >
+</form>
+
+<p id="mensagem-busca" role="status" aria-live="polite"></p>
+    </section>
+
+
+
+<main id="catalogo">
+    <h2>Nosso catálogo</h2>
+
+    <section class="catalogo">
+
+        <article class="card" data-genero="romance-drama">
+            <div class="capa">
+                <img src="imagens/livro.png" alt="Capa do livro A história que nunca vivemos">
+            </div>
+            <p class="categoria">Livro</p>
+            <h3>A história que nunca vivemos</h3>
+            <p>Explore histórias e aventuras literárias.</p>
+        </article>
+
+        <article class="card" data-genero="fantasia-ficcao">
+            <div class="capa">
+                <img src="imagens/HQ.jpg" alt="Capa da HQ Desafio Infinito da Marvel">
+            </div>
+            <p class="categoria">HQ</p>
+            <h3>Desafio Infinito</h3>
+            <p>Histórias ilustradas para todos os leitores.</p>
+        </article>
+
+        <article class="card" data-genero="fantasia-ficcao">
+            <div class="capa">
+                <img src="imagens/manga.jpg" alt="Capa do mangá Cowboy Bebop">
+            </div>
+            <p class="categoria">Mangá</p>
+            <h3>Cowboy Bebop</h3>
+            <p>Conheça diferentes histórias e coleções.</p>
+        </article>
+
+        <article class="card" data-genero="fantasia-ficcao">
+            <div class="capa">
+                <img src="imagens/GraphicNovel.jpg" alt="Capa ilustrativa de uma graphic novel">
+            </div>
+            <p class="categoria">Graphic Novel</p>
+            <h3>Arte em narrativa</h3>
+            <p>Descubra histórias contadas por imagens.</p>
+        </article>
+
+    </section>
+    <section class="explorar-generos">
+
+    <h2>Explore por gênero</h2>
+
+    <p class="descricao-generos">
+        Descubra novas histórias de acordo com seus estilos favoritos.
+    </p>
+
+   <div class="generos">
+
+    <button class="genero" onclick="filtrarGenero('suspense-terror')">
+        <h3>Suspense e Terror</h3>
+        <p>Mistérios, investigações e histórias assustadoras.</p>
+    </button>
+
+    <button class="genero" onclick="filtrarGenero('fantasia-ficcao')">
+        <h3>Fantasia e Ficção Científica</h3>
+        <p>Mundos mágicos, aventuras e viagens futuristas.</p>
+    </button>
+
+    <button class="genero" onclick="filtrarGenero('romance-drama')">
+        <h3>Romance e Drama</h3>
+        <p>Histórias emocionantes sobre amor e relacionamentos.</p>
+    </button>
+
+    <button class="genero" onclick="filtrarGenero('classicos')">
+        <h3>Clássicos da Literatura</h3>
+        <p>Obras que marcaram gerações de leitores.</p>
+    </button>
+
+</div>
+
+<button class="btn-todas" onclick="mostrarTodas()">
+    Ver todas as publicações
+</button>
+
+</section>
+</main>
+
+
+
+   <section id="sobre" class="secao-sobre">
+    <h2>Sobre o BookVerse</h2>
+
+    <p>
+        O BookVerse nasceu com o propósito de proporcionar aos leitores
+        um espaço digital organizado, intuitivo e acolhedor para reunir
+        suas experiências literárias.
+    </p>
+
+    <p>
+        Nossa biblioteca reúne livros, histórias em quadrinhos, mangás
+        e graphic novels, facilitando a descoberta de novas histórias
+        e a organização das leituras.
+    </p>
+
+    <p>
+        Queremos incentivar o hábito da leitura, ajudando cada leitor
+        a explorar diferentes universos literários e encontrar novas
+        obras para sua coleção.
+    </p>
+
+    <h3>Nossa missão</h3>
+
+    <p>
+        Aproximar leitores de novas histórias e tornar a experiência
+        de leitura mais organizada, acessível e prazerosa.
+    </p>
+</section>
+
+<footer>
+    <p>BookVerse © 2026 - Seu universo de leitura.</p>
+</footer>
+
+<script>
+const formulario = document.getElementById("form-busca");
+const campoBusca = document.getElementById("campo-busca");
+const mensagem = document.getElementById("mensagem-busca");
+const cards = document.querySelectorAll(".card");
+function limparPesquisa() {
+    campoBusca.value = "";
+    mensagem.textContent = "";
+
+    cards.forEach(function(card) {
+        card.style.display = "";
+    });
+}
+document.querySelector('a[href="#inicio"]').addEventListener("click", function() {
+    limparPesquisa();
+});
+
+formulario.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const pesquisa = campoBusca.value
+        .trim()
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+
+    let encontrados = 0;
+
+    cards.forEach(function(card) {
+        const conteudo = card.textContent
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "");
+
+        const corresponde = conteudo.includes(pesquisa);
+
+        card.style.display = corresponde ? "" : "none";
+
+        if (corresponde) {
+            encontrados++;
+        }
+    });
+
+    if (pesquisa === "") {
+        mensagem.textContent = "";
+    } else if (encontrados === 0) {
+        mensagem.textContent = "Nenhuma publicação encontrada.";
+    } else {
+        mensagem.textContent = encontrados + " publicação(ões) encontrada(s).";
+    }
+});
+function filtrarGenero(genero) {
+    campoBusca.value = "";
+    mensagem.textContent = "";
+
+    cards.forEach(function(card) {
+        const generoCard = card.dataset.genero;
+
+        card.style.display =
+            generoCard === genero ? "" : "none";
+    });
+
+    const encontrados = Array.from(cards).filter(function(card) {
+        return card.dataset.genero === genero;
+    }).length;
+
+    if (encontrados === 0) {
+        mensagem.textContent =
+            "Nenhuma publicação cadastrada neste gênero ainda.";
+    } else {
+        mensagem.textContent =
+            encontrados + " publicação(ões) encontrada(s).";
+    }
+
+    document.querySelector("#catalogo").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+function mostrarTodas() {
+    campoBusca.value = "";
+    mensagem.textContent = "";
+
+    cards.forEach(function(card) {
+        card.style.display = "";
+    });
+
+    document.querySelector("#catalogo").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+</script>
+
+</body>
+</html>
