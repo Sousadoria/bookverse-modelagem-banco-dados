@@ -1,74 +1,86 @@
-# 📚 BookVerse — Sistema de Gestão de Biblioteca e Leitura
+# 📚 BookVerse — Sua biblioteca digital
 
-## Sobre o projeto
+O **BookVerse** é um projeto de desenvolvimento web que apresenta uma biblioteca digital para organização e exploração de publicações literárias. A plataforma reúne livros, histórias em quadrinhos (HQs), mangás e graphic novels em um único ambiente, com uma interface intuitiva e temática.
 
-O **BookVerse** é um projeto acadêmico de análise de sistemas e modelagem de banco de dados que propõe o desenvolvimento de um sistema para gerenciamento de uma biblioteca física.
+O projeto foi desenvolvido com o objetivo de praticar conceitos fundamentais de desenvolvimento front-end, organização de conteúdo, interatividade e acessibilidade.
 
-A plataforma tem como finalidade organizar livros, histórias em quadrinhos (HQs), mangás e graphic novels, permitindo controlar o acervo, os leitores, os empréstimos, as devoluções e o acompanhamento do progresso de leitura.
+## ✨ Funcionalidades
 
-O projeto busca demonstrar como os dados podem ser estruturados e transformados em informações úteis para a organização da biblioteca e para a tomada de decisões.
+- **Catálogo de publicações:** apresentação de livros, HQs, mangás e graphic novels.
+- **Pesquisa:** busca de publicações pelo nome ou por palavras presentes nas informações dos cards.
+- **Filtros por gênero:** navegação por categorias literárias.
+- **Visualização completa:** botão para retornar a todas as publicações.
+- **Design responsivo:** adaptação da interface para computadores e dispositivos móveis.
+- **Acessibilidade:** textos alternativos nas imagens, navegação por teclado e atenção ao contraste das cores.
 
-## Objetivos
+## 🛠️ Tecnologias utilizadas
 
-- Gerenciar o acervo de livros, HQs, mangás e graphic novels.
-- Controlar o cadastro de leitores, empréstimos e devoluções.
-- Registrar o progresso, os hábitos e as avaliações de leitura.
-- Organizar dados para gerar informações sobre o funcionamento da biblioteca.
+- HTML5 — estruturação do conteúdo.
+- CSS3 — estilização, identidade visual e responsividade.
+- JavaScript — funcionalidades de pesquisa e filtragem.
 
-## Funcionalidades previstas
-
-- Cadastro e consulta de publicações.
-- Organização de autores, ilustradores, editoras, gêneros e coleções.
-- Controle de exemplares físicos e disponibilidade.
-- Cadastro de leitores.
-- Registro de empréstimos e devoluções.
-- Acompanhamento do progresso de leitura.
-- Registro de avaliações e resenhas.
-- Geração de relatórios descritivos.
-
-## Tecnologias e ferramentas
-
-- Git e GitHub — versionamento e hospedagem do projeto.
-- Visual Studio Code — ambiente de desenvolvimento.
-- Markdown — documentação.
-- SQL — futura implementação e consulta ao banco de dados.
-
-## Estrutura do repositório
+## 📂 Estrutura do projeto
 
 ```text
 bookverse-modelagem-banco-dados/
 │
-├── README.md
+├── app/
+│   ├── index.html
+│   │
+│   └── imagens/
+│       ├── GraphicNovel.jpg
+│       ├── HQ.jpg
+│       ├── livro.png
+│       └── manga.jpg
 │
-├── docs/
-│   ├── 01-minimundo.md
-│   ├── 02-objetivos-e-escopo.md
-│   ├── 03-atores-e-processos.md
-│   ├── 04-entidades.md
-│   ├── 05-dados-e-informacoes.md
-│   ├── 06-dados-estruturados-e-nao-estruturados.md
-│   └── 07-reflexao-sobre-aprendizagem.md
-│
-└── modelagem/
+└── README.md
 ```
 
-## Escopo do projeto
+## 🚀 Como executar o projeto
 
-O sistema está inicialmente concentrado no gerenciamento de uma biblioteca física. Não fazem parte desta versão funcionalidades de comércio eletrônico, pagamentos, leitura digital, integração com plataformas externas, redes sociais ou recomendações automatizadas por inteligência artificial.
+1. Clone este repositório:
 
-## Etapas do desenvolvimento
+   ```bash
+   git clone https://github.com/Sousadoria/bookverse-modelagem-banco-dados.git
+   ```
 
-1. Definição do minimundo e dos objetivos.
-2. Identificação dos atores e processos.
-3. Levantamento das entidades e seus atributos.
-4. Classificação dos dados e informações.
-5. Elaboração do modelo conceitual e lógico.
-6. Implementação futura do banco de dados.
+2. Entre na pasta do projeto:
 
-## Status do projeto
+   ```bash
+   cd bookverse-modelagem-banco-dados
+   ```
 
-Em desenvolvimento — etapa de análise e modelagem de dados.
+3. Abra a pasta `app`.
 
-## Autor
+4. Abra o arquivo `index.html` no navegador.
 
-Projeto acadêmico desenvolvido como atividade prática de estudos em análise de sistemas e banco de dados.
+   Outra opção é utilizar a extensão **Live Server** no Visual Studio Code para executar o projeto em um servidor local.
+
+## ♿ Acessibilidade
+
+Durante o desenvolvimento, foram realizadas verificações iniciais de acessibilidade, incluindo:
+
+- Textos alternativos para as imagens.
+- Navegação utilizando o teclado.
+- Verificação de contraste das cores com a ferramenta WebAIM Contrast Checker.
+- Identificação dos elementos interativos.
+
+As combinações de cores testadas atenderam aos critérios de contraste WCAG 2.1 AA.
+
+## 📱 Responsividade
+
+A interface foi adaptada para diferentes tamanhos de tela, incluindo computadores, tablets e celulares.
+
+## 📌 Status do projeto
+
+**Em desenvolvimento.**
+
+O BookVerse é um projeto de aprendizado e portfólio, sujeito a novas funcionalidades e melhorias.
+
+## 👩‍💻 Autoria
+
+Desenvolvido como projeto de estudo e prática de desenvolvimento web.
+
+---
+
+*BookVerse — Histórias, conhecimento e imaginação em um só lugar.*
